@@ -19,9 +19,11 @@ img {
 h1, h2, p {
     text-align: center;
 }
+
 p {
     color: #035f9c;
 }
+
 .list {
     list-style-type: none;
 }
