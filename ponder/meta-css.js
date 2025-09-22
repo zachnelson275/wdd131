@@ -10,6 +10,9 @@ console.log(area);
 
 const ONE = 1;
 const TWO = '2';
+let result = ONE + TWO;
+console.log(result);
+console.log(typeof result);
 
 let course = "CSE131"; // global scope
 if (true) {
