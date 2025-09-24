@@ -26,7 +26,22 @@ console.log(course); // works fine, course is global
 
 let selectElem = document.getElementById('webdevlist');
 selectElem.addEventListener('change', function(){
+    document.getElementById('html').style.color = 'black';
+    document.getElementById('css').style.color = 'black';
+    document.getElementById('js').style.color = 'black';
     let codeValue = selectElem.value;
     console.log(codeValue);
     document.getElementById(codeValue).style.color = 'red';
 })
+
+const image = document.querySelector('img');
+image.addEventListener('mouseover', function(){
+    image.setAttribute('src', "darklogo.png");
+    image.setAttribute('alt', "Dark Mode Logo");
+});
+image.addEventListener('mouseout', function(){
+    image.setAttribute('src', "https://wddbyui.github.io/wdd131/images/trifecta.png");
+    image.setAttribute('alt', "Light Mode Logo");
+});
+
+document.body.className = 'blue';
