@@ -55,7 +55,7 @@ h3 {
     padding-top: 1rem;
 }
 
-#footer {
+footer {
     background-color: #3989f8;
     color: white;
     text-align: center;
@@ -80,7 +80,7 @@ h3 {
     #menu-btn {
         display: none;
     }
-    #footer {
+    footer {
         display: block;
     }
 }
