@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    color:rgb(198, 34, 34)
+}
+hr {
+    border: 0;
+    height: 3px;
+    background: rgb(228, 228, 1);
+}
+nav {
+    display: flex;
+    justify-content: right;
+}
+nav a {
+    color:rgb(198, 34, 34);
+    text-decoration: none;
+    padding-right: 2rem;
+}
+.book {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+div {
+    padding: 1rem;
+    
+}
