@@ -28,3 +28,29 @@ const students = [
     {last: 'Masa', first:'Manny'},
     {last: 'Tanda', first: 'Tamanda'}
 ];
+
+const steps = ["one", "two", "three"];
+
+steps.forEach(function(step) {
+    console.log(step);
+});
+
+let myList = document.querySelector('#myList');
+const stepHTML = steps.map(listTemplate);
+
+function listTemplate(step) {
+    return `<li>${step}</li>`;
+}
+
+myList.innerHTML = stepHTML.join('');
+
+let grades = ['A', 'A', 'A'];
+
+let gpaPoints = grades.map(convert);
+
+let totalPoints = gpaPoints.reduce(function(total, points) {
+    return total + points;
+});
+
+avgPoints = totalPoints / grades.length;
+console.log(avgPoints);
