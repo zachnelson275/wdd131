@@ -54,3 +54,20 @@ let totalPoints = gpaPoints.reduce(function(total, points) {
 
 avgPoints = totalPoints / grades.length;
 console.log(avgPoints);
+
+const shortWords = words.filter(function(word){
+    return word.length <= 5;
+});
+console.log(shortWords);
+
+
+let container = document.querySelector('#studentContainer');
+students.forEach(function(item) {
+    let name = document.createElement('div');
+    let html = `
+        <span>${item.first}</span>
+        <span>${item.last}</span>
+    `;
+    name.innerHTML = html;
+    container.appendChild(name);
+});
