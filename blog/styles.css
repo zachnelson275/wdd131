@@ -23,7 +23,28 @@ nav a {
     display: grid;
     grid-template-columns: 1fr;
 }
+.details {
+    text-align: right;
+}
+.review h2 {
+    text-align: left;
+}
+.review img {
+    display: block;
+    margin: 0 auto;
+}
 div {
     padding: 1rem;
-    
+}
+footer p {
+    text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+    .book {
+        grid-template-columns: 1fr 2fr;
+    }
+    .book > :nth-child(2) {
+        border-left: 3px solid rgb(228, 228, 1);
+    }
 }
