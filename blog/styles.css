@@ -22,6 +22,7 @@ nav a {
 .book {
     display: grid;
     grid-template-columns: 1fr;
+    border-top: 3px solid rgb(228, 228, 1);
 }
 .details {
     text-align: right;
@@ -43,6 +44,7 @@ footer p {
 @media screen and (min-width: 600px) {
     .book {
         grid-template-columns: 1fr 2fr;
+        border-top: none;
     }
     .book > :nth-child(2) {
         border-left: 3px solid rgb(228, 228, 1);
