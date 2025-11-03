@@ -1,7 +1,7 @@
 const aCourse = {
     code: 'CSE121b',
     name: 'Javascript Language',
-    logo: 'images/js-logo.png',
+    logo: 'logo.png',
     sections: [
     { sectionNum: 1, roomNum: 'STC 353', enrolled: 26, days: 'TTh', instructor: 'Bro T'},
     { sectionNum: 2, roomNum: 'STC 347', enrolled: 28, days: 'TTh', instructor: 'Sis A'}
@@ -39,3 +39,12 @@ document.querySelector("#enrollStudent").addEventListener("click", function () {
     aCourse.enrollStudent(sectionNum);
 });
           
+document.querySelector("#courseName").innerText = aCourse.name;
+document.querySelector("#courseCode").innerText = aCourse.code;
+
+let logo = document.querySelector("img");
+logo.src = aCourse.logo;
+logo.alt = "Javascript Logo";
+logo.style.width = "100px";
+
+console.log(aCourse.sections[1].roomNum);
