@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Credit Card</title>
+</head>
+<body>
+    <form id="form">
+        <div id="errors" role="alert" aria-live="assertive"></div>
+        <div id="card-front">
+            <p id="total">TOTAL: $199</p>
+            <div id="cardNumber">
+                <label for="creditCardNumber">CARD NUMBER</label>
+                <input type="text" id="creditCardNumber" name="creditCardNumber" pattern="[0-9]{16}" placeholder="1234 5678 9012 3456" aria-labelledby="cardNumber" required>
+            </div>
+            <div id="cardHolderName">
+                <label for="name">CARD HOLDER</label>
+                <input type="text" id="name" name="fullname" placeholder="John Doe" aria-labelledby="name" required>
+            </div>
+            <div id="cardExpiration">
+                <label for="expirationDate">EXPIRATION</label>
+                <input type='text' id='month' name="expMonth" placeholder="MM" aria-labelledby="expirationDate" required>
+                <input type='text' id='year' name="expYear" placeholder="YY" aria-labelledby="expirationDate" required>
+            </div>
+            <p id="icon">💳</p>
+        </div>
+        <div id="card-back">
+            <div id="code">
+                <label for="cvv">CVC/CVV</label>
+                <input type="text" id="cvv" name="cvv" pattern="[0-9]{3}" placeholder="xxx" aria-labelledby="cvv" required>
+            </div>
+        </div>
+        <button type="submit" id="payButton">Submit</button>
+    </form>
+</body>
+</html>
