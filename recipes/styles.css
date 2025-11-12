@@ -1,3 +1,7 @@
+.recipe-card, .search, hr, footer {
+    margin: 20px;
+}
+
 .title {
     display: flex;
     justify-content: center;
@@ -36,7 +40,40 @@
     max-width: 40px;
     height: auto;
     min-width: 24px;
-    
+}
+
+.recipe-card {
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.recipe-card > * {
+    margin: 20px;
+}
+.recipe-image {
+    max-width: 400px;
+    height: auto;
+}
+.recipe-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.recipe-info h2 {
+    color: rgb(0, 234, 255);
+}
+
+.description {
+    display: none;
+}
+
+.tags {
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: rgb(226, 226, 226);
+    order: -1;
+    max-width: fit-content;
 }
 
 .amatic-sc-regular {
@@ -49,4 +86,14 @@
   font-family: "Amatic SC", sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+@media screen and (min-width: 700px) {
+    .recipe-card {
+        flex-direction: row;
+        gap: 20px;
+    }
+    .description {
+        display: block;
+    }
 }
