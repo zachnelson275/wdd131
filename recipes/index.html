@@ -32,19 +32,30 @@
     <!-- Normalize & Regular Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="recipe.jss" defer></script>
+    <script src="recipe.js" defer></script>
 
     <title>Recipe Book</title>
 </head>
 <body>
+    <div class="title">
+        <img src="images\recipe-book.png" alt="RecipeBook Logo" class="logo">
+        <h1>RecipeBook</h1>
+    </div>
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Find a recipe">
+        <img src="images\search.svg" alt="Search Icon" id="searchIcon">
+    </div>
+    <div class="recipe-container">
+        <!-- Recipe cards will be dynamically inserted here -->
+    </div>
     
     <div class="social">
     <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates  -->
-    <a href="#"><img src="images/instagram_icon.svg" alt="instagram icon"></a>
-    <a href="#"><img src="images/youtube_icon.svg" alt="youtube icon"></a>
-    <a href="#"><img src="images/pinterest_icon.svg" alt="pinterest icon"></a>
+        <a href="#"><img src="images/instagram_icon.svg" alt="instagram icon"></a>
+        <a href="#"><img src="images/youtube_icon.svg" alt="youtube icon"></a>
+        <a href="#"><img src="images/pinterest_icon.svg" alt="pinterest icon"></a>
     </div>
-                
+
 </body>
 <footer>
 <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">Recipe icons created by Freepik - Flaticon</a>                   
