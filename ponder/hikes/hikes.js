@@ -70,4 +70,52 @@ const hikes = [
       trailhead: [43.78555, -111.98996]
     }
   ];
-                  
+
+  let randomNum = Math.floor(Math.random()) * hikes.length;
+           
+  function tagTemplate(tags) {
+    return tags.map((tag)=> `<button>${tag}</button>`).join(' ');
+}
+
+function difficultyTemplate(rating) {
+		let html = `<span
+	class="rating"
+	role="img"
+	aria-label="Rating: ${rating} out of 5"
+>  Difficulty: `
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        html += `<span aria-hidden="true" class="icon-boot"> 🥾</span>`
+      } else {
+        html += `<span aria-hidden="true" class="icon-empty">▫️</span>`
+      }			
+    }
+    html += `</span>`
+    return html
+  }
+
+function hikesTemplate(hike) {
+    return `<div class="hike-card">
+  <div class="hike-content">
+    <h2>${hike.name}</h2>
+    <div class="hike-tags">
+      ${tagTemplate(hike.tags)}
+    </div>
+    <p>${hike.description}</p>
+    <p>${difficultyTemplate(hike.difficulty)}</p>
+  </div>
+</div>`
+}
+
+let hikeContainer = document.querySelector('#hike-container');
+
+function renderHike(hike) {
+    let html = hikesTemplate(hike);
+    hikeContainer.innerHTML += html
+}
+
+function init() {
+    renderHike(hikes[randomNum]);
+}
+
+init();
