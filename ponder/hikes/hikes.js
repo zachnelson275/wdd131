@@ -74,10 +74,40 @@ const hikes = [
 let randomNum = Math.floor(Math.random()) * hikes.length;
 let hikeContainer = document.querySelector('#hike-container');
 let button = document.querySelector('button');
+
+button.addEventListener('click', search);
+
+function search() {
+  let hikeQuery = document.querySelector('#search').value;
+
+let filteredHikes = hikes.filter(function(hike) {
+  return hike.name.toLowerCase().includes(hikeQuery.toLowerCase() || hike.description.toLowerCase().includes(hikeQuery.toLowerCase()) || hike.tags.find(tag => tag.toLowerCase().includes(hikeQuery.toLowerCase())));
+});
+// console.log(filteredHikes);
+let sortedHikes = filteredHikes.sort(compareHikes);
+console.log(sortedHikes);
+
+function compareHikes(a,b) {
+  if (a.difficulty < b.difficulty) {
+      return -1;
+  } else if (a.difficulty > b.difficulty) {
+      return 1;
+  }
+  return 0;
+  }
+
+  // clear out screen
+  hikeContainer.innerHTML = '';
+  // display on screen
+  sortedHikes.forEach(function(hike) {
+    renderHike(hike);
+  });
+};
+ 
            
 function tagTemplate(tags) {
   return tags.map((tag)=> `<button>${tag}</button>`).join(' ');
-}
+};
 
 function difficultyTemplate(rating) {
 		let html = `<span
