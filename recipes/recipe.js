@@ -1,4 +1,3 @@
-
 const recipes = [
 	{
 		author: 'Provo High Culinary Students',
@@ -280,4 +279,40 @@ const recipes = [
 		rating: 4
 	}
 ]            
-                    
+
+let recipeContainer = document.querySelector('.recipe-container');
+let button = document.querySelector('button');
+
+function tagTemplate(tags) {
+    return tags.map((tag)=> `<button>${tag}</button>`).join(' ');
+}
+
+function ratingTemplate(rating) {
+    let html = `<span
+  class="rating"
+  role="img"
+  aria-label="Rating: ${rating} out of 5"
+>  Rating: `
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        html += `<span aria-hidden="true" class="icon-star-full"> ⭐</span>`
+      } else {
+        html += `<span aria-hidden="true" class="icon-star-empty">☆</span>`
+      }
+    }
+    html += `</span>`
+    return html
+}
+
+function recipesTemplate(recipe) {
+    return `<div class="recipe-card">
+            <img src="images\apple-crisp.jpg" alt="Apple Crisp" class="recipe-image">
+            <div class="recipe-info">
+                <h2>${recipe.name}</h2>
+                ${ratingTemplate(recipe.rating)}
+                <p class="description">${recipe.description}</p>
+                <div class="recipe-tags">${tagTemplate(recipe.tags)}</div>
+            </div>
+        </div>`
+}
+
