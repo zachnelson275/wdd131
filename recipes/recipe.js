@@ -24,6 +24,8 @@ const recipes = [
 			'1 C Flour'
 		],
 		name: 'Sweet Potato Waffles',
+        imageSrc: './images/sweet-potato-waffle-md.jpg',
+        imageAlt: 'Sweet Potato Waffles',
 		prepTime: '30 Min',
 		recipeInstructions: [
 			'Add the egg yolks, oil, salt, cayenne, sugar, ginger, shallots, sweet potatoes (steam and mash before), and milk and mix well.',
@@ -55,6 +57,8 @@ const recipes = [
 			'4-5 oz Fresh Green Beans'
 		],
 		name: 'Escalope de Poulet a la Creme with steamed green beans (Chicken with Cream)',
+        imageSrc: './images/escalopes-de-poulet-a-la-creme.webp',
+        imageAlt: 'Escalopes de Poulet a la Creme with steamed green beans (Chicken with Cream)',
 		prepTime: '10 min',
 		recipeInstructions: [
 			'Add 1 1/2 cups of water to a pan and bring to a boil.  Add the rice and reduce heat to low and simmer for 10-15 minutes or until all the moisture is gone.',
@@ -85,6 +89,8 @@ const recipes = [
 			'1-2 tsp Hot Sauce (optional)'
 		],
 		name: 'Oven Roasted potato slices',
+        imageSrc: './images/roasted-potatoes.webp',
+        imageAlt: 'Oven Roasted Potato Slices',
 		prepTime: '10 min',
 		recipeInstructions: [
 			'Preheat oven to 400 deg F',
@@ -118,6 +124,8 @@ const recipes = [
 			'Tortilla Chips'
 		],
 		name: 'Black Beans and Rice',
+        imageSrc: './images/black-beans-and-rice.jpg',
+        imageAlt: 'Black Beans and Rice',
 		prepTime: '10 min',
 		recipeInstructions: [
 			'Add 4 cups water to a saucepan and bring to a boil. Add Rice, stir, cover, and reduce heat to low. Cook until moisture is gone. (20-30 minutes)',
@@ -154,6 +162,8 @@ const recipes = [
 			'2 C Rice, uncooked'
 		],
 		name: 'Chicken Curry',
+        imageSrc: './images/chicken-curry.webp',
+        imageAlt: 'Chicken Curry',
 		prepTime: '10 min',
 		recipeInstructions: [
 			'Add 3 cups water to a saucepan and bring to a boil. Add Rice, stir, cover, and reduce heat to low. Cook until moisture is gone. (15-20 minutes)',
@@ -189,6 +199,8 @@ const recipes = [
 			'1 C Shredded Coconut'
 		],
 		name: 'Chocolate Chip Cookies',
+        imageSrc: './images/chocolate-chip-cookies.jpg',
+        imageAlt: 'Chocolate Chip Cookies',
 		prepTime: '15 min',
 		recipeInstructions: [
 			'Preheat oven to 350F.',
@@ -235,6 +247,8 @@ const recipes = [
 			'550 g (1.2 lbs) raspberries'
 		],
 		name: 'Gooseberry cake with vanilla cream and crumble',
+        imageSrc: './images/german-gooseberry-cake.jpg',
+        imageAlt: 'German Gooseberry Cake with Vanilla Cream and Crumble',
 		prepTime: '30 min',
 		recipeInstructions: [
 			'Combine the flour, butter, sugar and eggs in a bowl and beat with a whisk until you have a smooth dough. Transfer the batter to a 26 cm(10 inch) spring-form (or cake tin with removable base) lined with a parchment paper at the bottom and greased on the side. Smooth with a spoon or spatula and set aside.',
@@ -268,6 +282,8 @@ const recipes = [
 			'1/2 C butter, melted'
 		],
 		name: 'Apple Crisp',
+        imageSrc: './images/apple-crisp.jpg',
+        imageAlt: 'Apple Crisp',
 		prepTime: '30 min',
 		recipeInstructions: [
 			'Preheat the oven to 350 degrees F (175 degrees C).',
@@ -281,7 +297,38 @@ const recipes = [
 ]            
 
 let recipeContainer = document.querySelector('.recipe-container');
-let button = document.querySelector('button');
+let searchInput = document.querySelector('#searchInput');
+let searchIcon = document.querySelector('#searchIcon');
+
+searchIcon.addEventListener('click', search);
+searchInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') search();
+});
+
+function search() {
+    let recipeQuery = searchInput.value.trim();
+
+    let filteredRecipes = recipes.filter(function(recipe) {
+        return recipe.name.toLowerCase().includes(recipeQuery.toLowerCase()) || recipe.description.toLowerCase().includes(recipeQuery.toLowerCase()) || recipe.tags.find(tag => tag.toLowerCase().includes(recipeQuery.toLowerCase()));
+    });
+
+    let sortedRecipes = filteredRecipes.sort(compareRecipes);
+
+    function compareRecipes(a,b) {
+        if (a.rating < b.rating) {
+            return 1;
+        } else if (a.rating > b.rating) {
+            return -1;
+        }
+        return 0;
+    }
+
+    recipeContainer.innerHTML = '';
+
+    sortedRecipes.forEach(function(recipe) {
+        renderRecipe(recipe);
+    });
+}
 
 function tagTemplate(tags) {
     return tags.map((tag)=> `<button>${tag}</button>`).join(' ');
@@ -304,9 +351,9 @@ function ratingTemplate(rating) {
     return html
 }
 
-function recipesTemplate(recipe) {
+function recipeTemplate(recipe) {
     return `<div class="recipe-card">
-            <img src="images\apple-crisp.jpg" alt="Apple Crisp" class="recipe-image">
+            <img src=${recipe.imageSrc} alt=${recipe.imageAlt} class="recipe-image">
             <div class="recipe-info">
                 <h2>${recipe.name}</h2>
                 ${ratingTemplate(recipe.rating)}
@@ -316,3 +363,13 @@ function recipesTemplate(recipe) {
         </div>`
 }
 
+function renderRecipe(recipe) {
+    let html = recipeTemplate(recipe);
+    recipeContainer.innerHTML += html;
+}
+
+function init() {
+    recipes.forEach(renderRecipe);
+}
+
+init();
