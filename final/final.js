@@ -1,3 +1,5 @@
+let wordList = document.querySelector("#vocab_container")
+
 const words = [
     {
     word: "DPS",
@@ -22,7 +24,7 @@ const words = [
     {
         word: "Cheese",
         definition: "Completing an encounter in an unintended ways; using exploits or glitches to bypass mechanics",
-        usage: "Anytime you use an uninted method or exploit to complete an encounter, you are cheesing it. One of the most famous raid cheese comes from the Last Wish raid, where instead of doing one of the best encounters in the entire game, you use swords on Riven's toes to DPS her down before the wipe mechanic occurs, bypassing the encounter entirely."
+        usage: "Anytime you use an uninted method or exploit to complete an encounter, you are cheesing it. One of the most famous raid cheeses comes from the Last Wish raid, where instead of doing one of the best encounters in the entire game, you use swords on Riven's toes to DPS her down before the wipe mechanic occurs, bypassing the encounter entirely."
     },
     {
         word: "Wipe",
@@ -40,3 +42,13 @@ const words = [
         usage: "In every damage encounter, it is helpful to have at least one debuff active on the boss to maximize your damage output. Some common debuffs include Tractor Cannon, Tether, or the Strand keyword 'Sever'. The more debuffs you can stack together on the boss the better!"
     }
 ];
+
+words.forEach(word => {
+    let html = `<div class="word">
+    <h3>${word.word}</h3>
+    <p><strong>Definition:</strong> ${word.definition}</p>
+    <p><strong>Usage:</strong> ${word.usage}</p>
+    </div>`;
+
+    wordList.innerHTML += html;
+})
