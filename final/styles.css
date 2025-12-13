@@ -43,7 +43,7 @@
 #vocab_header {
     margin: 0 auto;
     width: 100%;
-    max-width: 95vw;;
+    max-width: 95vw;
     height: auto;
     display: block;
     object-fit: contain;
@@ -68,4 +68,84 @@
     justify-content: center;
     border-radius: 10px;
     flex-direction: column;
+}
+
+#about_header {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 95vw;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+#about_container {
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1em;
+    padding: 20px;
+    background-color: var(--accent1-color);
+    color: white;
+    border-radius: 10px;
+}
+#about_text, #about_links {
+    width: 100%;
+}
+
+#about_links li::marker {
+    content: "🔗 ";
+    font-size: 1.2em;
+}
+#about_links p{
+    display: inline;
+    margin: 0;
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgb(109, 109, 109);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-link:hover {
+    background-color: var(--secondary-color);
+    color: black;
+}
+
+
+@media screen and (min-width: 760px) {
+    #about_container {
+        flex-direction: row;
+    }
+    #about_text {
+        flex: 2;
+        position: relative;
+        padding: 1rem;
+    }
+
+    /* This is the vertical line inbetween the text and links */
+    #about_text::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -0.5rem;
+        height: 100%;
+        width: 1px;
+        background-color: #ddd;
+  }
+    #about_links {
+        padding: 1rem;
+        min-width: 240px;
+        flex: 1;
+    }
 }
