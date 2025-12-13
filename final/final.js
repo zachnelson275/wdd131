@@ -45,7 +45,7 @@ const words = [
 
 words.forEach(word => {
     let html = `<div class="word">
-    <h3>${word.word}</h3>
+    <h2>${word.word}</h2>
     <p><strong>Definition:</strong> ${word.definition}</p>
     <p><strong>Usage:</strong> ${word.usage}</p>
     </div>`;
