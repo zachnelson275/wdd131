@@ -58,7 +58,7 @@
 
 .word {
     width: 600px;
-    height: 200px;
+    max-height: 300px;
     margin: 10px;
     padding: 20px;
     background-color: var(--primary-color);
